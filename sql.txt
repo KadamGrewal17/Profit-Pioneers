@@ -1,0 +1,7 @@
+-- Update the table to calculate and store the percentage change
+UPDATE CryptoStorage
+SET PercentageChange = ROUND(((CurrentDayPrice - PrevDayPrice) / PrevDayPrice) * 100, 2);
+
+-- Output the whole table including the newly calculated PercentageChange column
+SELECT *, PercentageChange
+FROM CryptoStorage;
