@@ -1,3 +1,4 @@
+# Kadam Grewal Start Code
 from tkinter import *
 import requests
 from time import strftime
@@ -112,7 +113,9 @@ label.pack(pady=20)
 get_bitcoin_price()
 
 root.mainloop()
+# Kadam Grewal End Code
 
+# Hamza Qureshi Start Code
 # loop_forever for simplicity, here you need to stop the loop manually
 client.loop_forever()
 
@@ -134,3 +137,5 @@ change_label = tk.label(root, font=("Helvetica",16))
 change_label.pack(padx=20, pady=20)
 update_price()
 root.mainloop()
+
+# Hamza Qureshi End Code
