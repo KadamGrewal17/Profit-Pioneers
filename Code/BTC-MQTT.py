@@ -125,9 +125,23 @@ def update_price():
     price = get_bitcoin_price()
     change = (price - last_price) / last_price * 100
     change_label.config(text=f"Change in bitcoin price: (change:.2f)%")
+    fg=get_colour(change))
     last_price = price
     change_label.after(60000, update_price)
 # update every minute
+
+# Now we are going to make the label change colour depending on whether the price increases or decreases
+def get_colour(change)
+       if change > 0:
+           return 'green'
+       elif change < 0:
+           return 'red'
+       else:
+           return 'black'
+
+# Function to manually refresh the price and percentage change
+def refresh_price():
+    update_price()
 
 last_price = get_bitcoin_price()
 root=tk.Tk()
