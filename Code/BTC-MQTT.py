@@ -115,3 +115,22 @@ root.mainloop()
 
 # loop_forever for simplicity, here you need to stop the loop manually
 client.loop_forever()
+
+# Next piece of code displays the live percentage change in bitcoin
+def update_price():
+    global last_price
+    price = get_bitcoin_price()
+    change = (price - last_price) / last_price * 100
+    change_label.config(text=f"Change in bitcoin price: (change:.2f)%")
+    last_price = price
+    change_label.after(60000, update_price)
+# update every minute
+
+last_price = get_bitcoin_price()
+root=tk.Tk()
+root.title("Live Bitcoin Percentage Change in Price")
+
+change_label = tk.label(root, font=("Helvetica",16))
+change_label.pack(padx=20, pady=20)
+update_price()
+root.mainloop()
