@@ -89,43 +89,4 @@ def get_crypto_price(symbol, label):
     else:
         label.config(text=f'Error: {response.status_code} - {response.text}')
 
-# Create the main Tkinter window
-root = Tk()
-root.geometry("400x300")
-root.title('Crypto Price Tracker')
-
-# Time Label
-time_label = Label(root, text='', font=('Helvetica', 16))
-time_label.pack(pady=10)
-
-# Ethereum Frame
-eth_frame = Frame(root, bd=2, relief=SUNKEN)
-eth_frame.pack(pady=10)
-eth_label = Label(eth_frame, text='Ethereum Price: Fetching...', font=('Helvetica', 16), bd=2, relief=SUNKEN)
-eth_label.pack(pady=10)
-
-# Bitcoin Frame
-btc_frame = Frame(root, bd=2, relief=SUNKEN)
-btc_frame.pack(pady=10)
-btc_label = Label(btc_frame, text='Bitcoin Price: Fetching...', font=('Helvetica', 16), bd=2, relief=SUNKEN)
-btc_label.pack(pady=10)
-
-# Initialize previous values dictionary
-get_crypto_price.prev_values = {}
-
-# Function to update time
-def update_time():
-    current_time = strftime('%H:%M:%S')
-    time_label.config(text=f'Time: {current_time}')
-    root.after(1000, update_time)
-
-# Call the function to get Ethereum and Bitcoin prices
-get_crypto_price('ETHUSDT', eth_label)
-get_crypto_price('BTCUSDT', btc_label)
-
-# Call the function to update time
-update_time()
-
-root.mainloop()
-
 client.loop_forever()
