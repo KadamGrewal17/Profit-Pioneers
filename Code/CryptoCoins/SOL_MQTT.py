@@ -14,7 +14,7 @@ def get_sol_price(label):
     headers = {
         'X-MBX-APIKEY': api_key
     }
-
+    
     # API request
     params = {'symbol': symbol}
     response = requests.get(url, headers=headers, params=params)
